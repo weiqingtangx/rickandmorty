@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            TabItemView(title:"Characters", image: "house")
-            TabItemView(title:"Characters", image: "house")
+            TabItemView(title:"Characters", image: "house")            
         };
     }
 }

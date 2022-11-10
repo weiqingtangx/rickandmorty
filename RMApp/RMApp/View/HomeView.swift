@@ -42,13 +42,11 @@ struct SuccessView: View {
             self.searchText.isEmpty ? true : $0.name!.lowercased().contains(self.searchText.lowercased())};
         List {
             ForEach(filterFeed, id: \.id) { character in
-                VStack {
-                    ZStack {
-                        CharacterView(character: character)
-                        NavigationLink(destination: CharacterDetailView(character: character)) {
-                            EmptyView()
-                        }.buttonStyle(PlainButtonStyle())
-                    }
+                ZStack {
+                    CharacterView(character: character)
+                    NavigationLink(destination: CharacterDetailView(character: character)) {
+                        EmptyView()
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
         }.searchable(text: $searchText)
