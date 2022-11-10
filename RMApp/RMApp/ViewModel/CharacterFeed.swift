@@ -15,12 +15,12 @@ enum ViewState {
 }
 
 class CharacterFeed : ObservableObject, RandomAccessCollection {
-    @Published var characterItems = [Character]()
-    
     var startIndex: Int{ characterItems.startIndex }
     var endIndex: Int{ characterItems.endIndex }
-    var page: Int = 0;
-    var state: ViewState = ViewState.idle;
+    
+    var characterItems = [Character]()
+    var page: Int = 1;
+    @Published var state: ViewState = ViewState.idle;
     
     subscript(position: Int) -> Character {
         return characterItems[position]
@@ -28,8 +28,7 @@ class CharacterFeed : ObservableObject, RandomAccessCollection {
     
     init(){
         state = .loading;
-        let req = CharacterRequest.init(page: 1);
-        CharacterFeedService.getAllCharacters(request: req) { [weak self] result in
+        CharacterFeedService.getAllCharacters(request: CharacterRequest.init(page: page)) { [weak self] result in
             guard let self = self else { return; }
             DispatchQueue.main.async {
                 switch result {
@@ -37,7 +36,6 @@ class CharacterFeed : ObservableObject, RandomAccessCollection {
                     self.characterItems = characters.results ?? []
                     self.state = .success
                 case let .failure(error):
-                    self.characterItems = []
                     self.state = .error(error)
                 }
             }

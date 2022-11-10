@@ -9,6 +9,32 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var characterFeed = CharacterFeed()
+    
+    var body: some View {
+        //handle different state of CharacterFeed ViewModel
+        switch self.characterFeed.state {
+        case .idle: IdleView()
+        case .loading: LoadingView();
+        case .success: SuccessView(characterFeed: self.characterFeed);
+        case .error: ErrorView(characterFeed: self.characterFeed);
+        }
+    }
+}
+
+struct IdleView: View {
+    var body: some View {
+        Text("Idle");
+    }
+}
+
+struct LoadingView: View {
+    var body: some View {
+        Text("Loading...");
+    }
+}
+
+struct SuccessView: View {
+    var characterFeed: CharacterFeed
     @State var searchText = ""
     
     var body: some View {
@@ -24,8 +50,19 @@ struct HomeView: View {
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
-            }            
+            }
         }.searchable(text: $searchText)
+    }
+}
+
+struct ErrorView: View {
+    var characterFeed: CharacterFeed
+    
+    var body: some View {
+        if(self.characterFeed.count == 0) {
+            Text("Error");
+        }
+        //else we have data, do nothing here
     }
 }
 

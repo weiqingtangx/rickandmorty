@@ -19,6 +19,7 @@ struct ContentView: View {
 struct TabItemView: View {
     var title: String
     var image: String
+    
     var body: some View {
         NavigationStack {
                 HomeView()

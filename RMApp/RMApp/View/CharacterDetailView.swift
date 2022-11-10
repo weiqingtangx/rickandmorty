@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct PhotoImage: View {
     var url : String
+    
     var body: some View {
         WebImage(url: URL(string: url))
         .resizable()
