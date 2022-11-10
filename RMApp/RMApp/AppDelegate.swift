@@ -1,5 +1,5 @@
 //
-//  RMAppApp.swift
+//  AppDelegate.swift
 //  RMApp
 //
 //  Created by westin on 2022/11/9.

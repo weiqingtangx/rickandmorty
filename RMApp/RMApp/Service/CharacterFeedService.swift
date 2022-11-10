@@ -24,10 +24,16 @@ struct CharacterFeedService {
     
     /// request all characters from server side
     /// - Parameters:
-    ///   - request: request params
+    ///   - request: request params, page stars from 1
     ///   - completion: failure with error or success with response
     static func getAllCharacters(request: CharacterRequest, completion: @escaping (Result<CharactersResponse, Error>) -> Void) {
-       
+        
+        if(request.page < 1) {
+            print("CharacterFeedService#Error: page less than 1")
+            completion(.failure(CustomError.noData))
+            return
+        }
+               
         //assembly a new url
         let url = "\(BaseURL)/character/?page=\(request.page)"
         

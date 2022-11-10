@@ -23,7 +23,6 @@ struct HomeView: View {
                             EmptyView()
                         }.buttonStyle(PlainButtonStyle())
                     }
-                    Spacer()
                 }
             }            
         }.searchable(text: $searchText)

@@ -2,7 +2,7 @@
 //  CharacterDetailView.swift
 //  RMApp
 //
-//  Created by sunny on 2022/11/9.
+//  Created by westin on 2022/11/9.
 //
 
 import SwiftUI
@@ -25,7 +25,7 @@ struct CharacterDetailView: View {
                 PhotoImage(url: character?.image ?? "")
                     .frame(width: 300, height: 300)
                 VStack(alignment: .center, spacing: 16) {
-                    Text(character?.name ?? "Not nameable character").font(.title3).bold()
+                    Text(character?.name ?? "Unknown").font(.title3).bold()
                     Text(character?.status ?? "Unknown").font(.subheadline)
                     Text(character?.species ?? "Unknown").font(.subheadline)
                     Text(character?.gender ?? "Unknown").font(.subheadline)
