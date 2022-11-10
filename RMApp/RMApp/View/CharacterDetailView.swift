@@ -26,7 +26,6 @@ struct CharacterDetailView: View {
                 PhotoImage(url: character?.image ?? "")
                     .frame(width: 300, height: 300)
                 VStack(alignment: .center, spacing: 16) {
-                    Text(character?.name ?? "Unknown").font(.title3).bold()
                     Text(character?.status ?? "Unknown").font(.subheadline)
                     Text(character?.species ?? "Unknown").font(.subheadline)
                     Text(character?.gender ?? "Unknown").font(.subheadline)
@@ -35,6 +34,6 @@ struct CharacterDetailView: View {
                        
                 }
             }
-        }
+        }.navigationTitle(Text(character?.name ?? "Unknown"))
     }
 }
