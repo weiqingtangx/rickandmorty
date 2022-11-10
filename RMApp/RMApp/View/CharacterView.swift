@@ -18,7 +18,7 @@ struct CharacterView: View {
                 .resizable()
                 .scaledToFill().frame(width: size, height: size)
             VStack(alignment: .leading, spacing: 16) {
-                Text(character?.name ?? "Not nameable character").font(.title3).bold()
+                Text(character?.name ?? "Unknown").font(.title3).bold()
                 Text(character?.status ?? "Unknown").font(.subheadline)
                 Text("Seen in \(character?.episode?.count ?? 0) episodes")
                    .font(.subheadline)

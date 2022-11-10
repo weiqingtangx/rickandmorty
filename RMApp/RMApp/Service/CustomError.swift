@@ -15,9 +15,9 @@ enum CustomError {
 extension CustomError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .noResponse: return "Well, Internet Connection Error";
+        case .noResponse: return "Well, no server response";
         case .noData: return "Well, weird thing happns";
-        case .parseError: return "Well, Data parse error";
+        case .parseError: return "Well, data parse error";
         }
     }
 }

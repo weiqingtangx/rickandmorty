@@ -15,7 +15,7 @@ class CharacterRequest: Codable {
     }
 }
 
-class CharactersResponse: Codable {
+class CharacterResponse: Codable {
     var info : Info?
     var results : [Character]?
 }
@@ -26,10 +26,11 @@ struct CharacterFeedService {
     /// - Parameters:
     ///   - request: request params, page stars from 1
     ///   - completion: failure with error or success with response
-    static func getAllCharacters(request: CharacterRequest, completion: @escaping (Result<CharactersResponse, Error>) -> Void) {
+    static func getAllCharacters(request: CharacterRequest, completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
         
         if(request.page < 1) {
-            print("CharacterFeedService#Error: page less than 1")
+            //may be need to log to file in case we need debug by log
+            print("CharacterFeedService#Error: page should not smaller than 1")
             completion(.failure(CustomError.noData))
             return
         }
@@ -51,7 +52,7 @@ struct CharacterFeedService {
             }
             
             do {
-                let response = try JSONDecoder().decode(CharactersResponse.self, from: data)
+                let response = try JSONDecoder().decode(CharacterResponse.self, from: data)
                 completion(.success(response))
             } catch {
                 print("CharacterFeedService#Error: \(error.localizedDescription)")
