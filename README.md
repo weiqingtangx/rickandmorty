@@ -2,8 +2,9 @@
 
 ## Introduction
 
-An iOS Chanllenge
+An iOS chanllenge of
 [Rick and Morty API](https://rickandmortyapi.com)
+![Image text](https://github.com/weiqingtangx/rickandmorty/ScreenShot.jpeg)
 
 ## Setup
 
