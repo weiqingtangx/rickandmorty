@@ -12,6 +12,9 @@
 		71E76D207237E37DCD0ABA16 /* Pods_RMAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F419D8F7508C59B9947638F /* Pods_RMAppTests.framework */; };
 		A31D533E291D59FF00EF4C28 /* CharacterFeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D533D291D59FF00EF4C28 /* CharacterFeedServiceTests.swift */; };
 		A31D5358291E012100EF4C28 /* CharacterFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D5357291E012100EF4C28 /* CharacterFeedTests.swift */; };
+		A31D535A291E16D100EF4C28 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D5359291E16D100EF4C28 /* ViewState.swift */; };
+		A31D535B291E16D100EF4C28 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D5359291E16D100EF4C28 /* ViewState.swift */; };
+		A31D535C291E16D100EF4C28 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D5359291E16D100EF4C28 /* ViewState.swift */; };
 		A33CDF9B291C372D003E43EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33CDF9A291C372D003E43EB /* AppDelegate.swift */; };
 		A33CDF9D291C372D003E43EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33CDF9C291C372D003E43EB /* ContentView.swift */; };
 		A33CDF9F291C372E003E43EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33CDF9E291C372E003E43EB /* Assets.xcassets */; };
@@ -67,6 +70,7 @@
 		5725B91A7E5A44B53B8AA34A /* Pods-RMAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMAppTests.debug.xcconfig"; path = "Target Support Files/Pods-RMAppTests/Pods-RMAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A31D533D291D59FF00EF4C28 /* CharacterFeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFeedServiceTests.swift; sourceTree = "<group>"; };
 		A31D5357291E012100EF4C28 /* CharacterFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFeedTests.swift; sourceTree = "<group>"; };
+		A31D5359291E16D100EF4C28 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		A33CDF97291C372D003E43EB /* RMApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33CDF9A291C372D003E43EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33CDF9C291C372D003E43EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		A33CDFD1291C39C5003E43EB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A31D5359291E16D100EF4C28 /* ViewState.swift */,
 				A33CDFEC291C68E5003E43EB /* CharacterFeed.swift */,
 			);
 			path = ViewModel;
@@ -480,6 +485,7 @@
 				A33CDFE5291C5244003E43EB /* CustomError.swift in Sources */,
 				A3A6C5BB291CB18600AC58B1 /* CharacterDetailView.swift in Sources */,
 				A33CDFD4291C39D6003E43EB /* HomeView.swift in Sources */,
+				A31D535A291E16D100EF4C28 /* ViewState.swift in Sources */,
 				A33CDFF1291C73C0003E43EB /* CharacterView.swift in Sources */,
 				A33CDFED291C68E5003E43EB /* CharacterFeed.swift in Sources */,
 				A33CDF9D291C372D003E43EB /* ContentView.swift in Sources */,
@@ -497,6 +503,7 @@
 				A33CDFDA291C4B29003E43EB /* Character.swift in Sources */,
 				A33CDFEA291C535C003E43EB /* URLService.swift in Sources */,
 				A33CDFD5291C39D6003E43EB /* HomeView.swift in Sources */,
+				A31D535B291E16D100EF4C28 /* ViewState.swift in Sources */,
 				A3A6C5BC291CB18600AC58B1 /* CharacterDetailView.swift in Sources */,
 				A31D533E291D59FF00EF4C28 /* CharacterFeedServiceTests.swift in Sources */,
 				A31D5358291E012100EF4C28 /* CharacterFeedTests.swift in Sources */,
@@ -513,6 +520,7 @@
 			files = (
 				A33CDFE7291C5244003E43EB /* CustomError.swift in Sources */,
 				A3A6C5BD291CB18600AC58B1 /* CharacterDetailView.swift in Sources */,
+				A31D535C291E16D100EF4C28 /* ViewState.swift in Sources */,
 				A33CDFD6291C39D6003E43EB /* HomeView.swift in Sources */,
 				A33CDFF3291C73C0003E43EB /* CharacterView.swift in Sources */,
 				A33CDFEF291C68E5003E43EB /* CharacterFeed.swift in Sources */,

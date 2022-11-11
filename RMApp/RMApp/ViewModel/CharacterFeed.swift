@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum ViewState {
-    case idle
-    case loading
-    case success
-    case error(Error)
-}
-
 class CharacterFeed : ObservableObject, RandomAccessCollection {
     var startIndex: Int{ characterItems.startIndex }
     var endIndex: Int{ characterItems.endIndex }
