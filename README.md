@@ -3,7 +3,7 @@
 ## Introduction
 
 An iOS chanllenge of
-[Rick and Morty API](https://rickandmortyapi.com)
+[Rick and Morty API](https://rickandmortyapi.com)  
 ![Image text](https://github.com/weiqingtangx/rickandmorty/blob/main/ScreenShot.jpeg)
 
 ## Setup
