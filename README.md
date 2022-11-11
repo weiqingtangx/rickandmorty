@@ -9,8 +9,9 @@ An iOS Chanllenge
 
 ```terminal
 $ git clone git@github.com:weiqingtangx/rickandmorty.git
-$ cd RMapp
+$ cd rickandmorty/RMapp
 $ pod install
+$ open RMApp.xcworkspace 
 ```
 
 ## License
