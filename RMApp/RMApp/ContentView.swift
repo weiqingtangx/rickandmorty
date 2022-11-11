@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            TabItemView(title:"Characters", image: "house")            
+            TabItemView(title:"Characters", image: "house", view: AnyView(HomeView()))
         };
     }
 }
@@ -18,10 +18,11 @@ struct ContentView: View {
 struct TabItemView: View {
     var title: String
     var image: String
+    var view: AnyView
     
     var body: some View {
         NavigationStack {
-                HomeView()
+                view
             .navigationTitle(title)
         }
         .tabItem {

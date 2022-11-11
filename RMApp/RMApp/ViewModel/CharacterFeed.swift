@@ -26,18 +26,24 @@ class CharacterFeed : ObservableObject, RandomAccessCollection {
         return characterItems[position]
     }
     
-    init(){
+    init() {
+        Task {await loadData(page: page)}
+    }
+    
+    
+    /// load data by page, starts from 1
+    /// - Parameter page: 1 ~ n
+    func loadData(page: Int) async {
         state = .loading;
-        CharacterFeedService.getAllCharacters(request: CharacterRequest.init(page: page)) { [weak self] result in
-            guard let self = self else { return; }
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(characters):
-                    self.characterItems = characters.results ?? []
-                    self.state = .success
-                case let .failure(error):
-                    self.state = .error(error)
-                }
+        let result = await CharacterFeedService.getAllCharacters(request: CharacterRequest.init(page: page));
+        
+        DispatchQueue.main.async {
+            switch result {
+            case let .success(characters):
+                self.characterItems = characters.results ?? []
+                self.state = .success
+            case let .failure(error):
+                self.state = .error(error)
             }
         }
     }

@@ -22,43 +22,28 @@ class CharacterResponse: Codable {
 
 struct CharacterFeedService {
     
-    /// request all characters from server side
-    /// - Parameters:
-    ///   - request: request params, page stars from 1
-    ///   - completion: failure with error or success with response
-    static func getAllCharacters(request: CharacterRequest, completion: @escaping (Result<CharacterResponse, Error>) -> Void) {
-        
+    /// get character list from server side
+    /// each page 20 characters
+    /// - Parameter request: page starts from 1
+    /// - Returns: CharacterResponse or Error occured
+    static func getAllCharacters(request: CharacterRequest) async -> Result<CharacterResponse, Error> {
         if(request.page < 1) {
+            //although api support less 1, but i think we should protect it in frontend side
             //may be need to log to file in case we need debug by log
             print("CharacterFeedService#Error: page should not smaller than 1")
-            completion(.failure(CustomError.noData))
-            return
+            return .failure(CustomError.noData)
         }
                
         //assembly a new url
         let url = "\(BaseURL)/character/?page=\(request.page)"
         
-        URLSession.shared.dataTask(with: URL(string: url)!){ data, _, error in
-            guard error == nil else {
-                print("CharacterFeedService#Error: \(error?.localizedDescription ?? "Unknown error occured")")
-                completion(.failure(CustomError.noResponse))
-                return
-            }
-            
-            guard let data = data else {
-                print("CharacterFeedService#Error: \(error?.localizedDescription ?? "Unknown error occured")")
-                completion(.failure(CustomError.noData))
-                return
-            }
-            
-            do {
-                let response = try JSONDecoder().decode(CharacterResponse.self, from: data)
-                completion(.success(response))
-            } catch {
-                print("CharacterFeedService#Error: \(error.localizedDescription)")
-                completion(.failure(CustomError.parseError))
-                return
-            }
-        }.resume()
+        do {
+            let (data, _) = try await URLSession.shared.data(from: URL(string: url)!)
+            let response = try JSONDecoder().decode(CharacterResponse.self, from: data)
+            return .success(response);
+        } catch let error {
+            print("CharacterFeedService#Error: \(error.localizedDescription)")
+            return .failure(CustomError.parseError);
+        }
     }
 }
