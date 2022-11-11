@@ -10,7 +10,7 @@ An iOS chanllenge of
 
 ```terminal
 $ git clone git@github.com:weiqingtangx/rickandmorty.git
-$ cd rickandmorty/RMapp
+$ cd rickandmorty/RMApp
 $ pod install
 $ open RMApp.xcworkspace 
 ```
