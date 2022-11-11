@@ -11,6 +11,7 @@
 		0C7895BF700425293AC89C79 /* Pods_RMApp_RMAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC299A98E189E3A6294E32D0 /* Pods_RMApp_RMAppUITests.framework */; };
 		71E76D207237E37DCD0ABA16 /* Pods_RMAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F419D8F7508C59B9947638F /* Pods_RMAppTests.framework */; };
 		A31D533E291D59FF00EF4C28 /* CharacterFeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D533D291D59FF00EF4C28 /* CharacterFeedServiceTests.swift */; };
+		A31D5358291E012100EF4C28 /* CharacterFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D5357291E012100EF4C28 /* CharacterFeedTests.swift */; };
 		A33CDF9B291C372D003E43EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33CDF9A291C372D003E43EB /* AppDelegate.swift */; };
 		A33CDF9D291C372D003E43EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33CDF9C291C372D003E43EB /* ContentView.swift */; };
 		A33CDF9F291C372E003E43EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33CDF9E291C372E003E43EB /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		4F419D8F7508C59B9947638F /* Pods_RMAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RMAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5725B91A7E5A44B53B8AA34A /* Pods-RMAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMAppTests.debug.xcconfig"; path = "Target Support Files/Pods-RMAppTests/Pods-RMAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A31D533D291D59FF00EF4C28 /* CharacterFeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFeedServiceTests.swift; sourceTree = "<group>"; };
+		A31D5357291E012100EF4C28 /* CharacterFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFeedTests.swift; sourceTree = "<group>"; };
 		A33CDF97291C372D003E43EB /* RMApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33CDF9A291C372D003E43EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33CDF9C291C372D003E43EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A31D533D291D59FF00EF4C28 /* CharacterFeedServiceTests.swift */,
+				A31D5357291E012100EF4C28 /* CharacterFeedTests.swift */,
 			);
 			path = RMAppTests;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				A33CDFD5291C39D6003E43EB /* HomeView.swift in Sources */,
 				A3A6C5BC291CB18600AC58B1 /* CharacterDetailView.swift in Sources */,
 				A31D533E291D59FF00EF4C28 /* CharacterFeedServiceTests.swift in Sources */,
+				A31D5358291E012100EF4C28 /* CharacterFeedTests.swift in Sources */,
 				A33CDFDE291C51D3003E43EB /* CharacterFeedService.swift in Sources */,
 				A33CDFF2291C73C0003E43EB /* CharacterView.swift in Sources */,
 				A33CDFE6291C5244003E43EB /* CustomError.swift in Sources */,
