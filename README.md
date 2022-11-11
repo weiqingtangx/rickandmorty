@@ -4,7 +4,7 @@
 
 An iOS chanllenge of
 [Rick and Morty API](https://rickandmortyapi.com)
-![Image text](https://github.com/weiqingtangx/rickandmorty/ScreenShot.jpeg)
+![Image text](https://github.com/weiqingtangx/rickandmorty/blob/main/ScreenShot.jpeg)
 
 ## Setup
 
