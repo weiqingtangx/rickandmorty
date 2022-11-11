@@ -7,37 +7,26 @@
 
 import Foundation
 
-class CharacterFeed : ObservableObject, RandomAccessCollection {
-    var startIndex: Int{ characterItems.startIndex }
-    var endIndex: Int{ characterItems.endIndex }
-    
+class CharacterFeed : ObservableObject {
+    @Published var state: ViewState = ViewState.idle
     var characterItems = [Character]()
-    var page: Int = 1;
-    @Published var state: ViewState = ViewState.idle;
-    
-    subscript(position: Int) -> Character {
-        return characterItems[position]
-    }
-    
-    init() {
-        Task {await loadData(page: page)}
-    }
-    
+    private(set) var page: Int = 1
     
     /// load data by page, starts from 1
     /// - Parameter page: 1 ~ n
-    func loadData(page: Int) async {
+    func loadCharacter(page: Int = 1) {
         state = .loading;
-        let result = await CharacterFeedService.getAllCharacters(request: CharacterRequest.init(page: page));
-        
-        DispatchQueue.main.async {
-            switch result {
-            case let .success(characters):
-                self.characterItems = characters.results ?? []
-                self.state = .success
-            case let .failure(error):
-                self.state = .error(error)
-            }
+        Task {
+            let result = await CharacterFeedService.getAllCharacters(request: CharacterRequest.init(page: page))
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    self.characterItems.append(contentsOf: response.results ?? []);
+                    self.state = .success
+                case let .failure(error):
+                    self.state = .error(error)
+                }
+            }            
         }
     }
 }

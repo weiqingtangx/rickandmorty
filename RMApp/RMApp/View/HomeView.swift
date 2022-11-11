@@ -10,13 +10,17 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var characterFeed = CharacterFeed()
     
+    init() {
+        self.characterFeed.loadCharacter()
+    }
+    
     var body: some View {
         //handle different state of CharacterFeed ViewModel
         switch self.characterFeed.state {
         case .idle: IdleView()
         case .loading: LoadingView();
-        case .success: SuccessView(characterFeed: self.characterFeed);
-        case .error: ErrorView(characterFeed: self.characterFeed);
+        case .success: SuccessView(characterItems: self.characterFeed.characterItems);
+        case .error(let err): ErrorView(characterItems: self.characterFeed.characterItems, error: err);
         }
     }
 }
@@ -34,11 +38,11 @@ struct LoadingView: View {
 }
 
 struct SuccessView: View {
-    var characterFeed: CharacterFeed
+    var characterItems: [Character]
     @State var searchText = ""
     
     var body: some View {
-        let filterFeed = self.characterFeed.filter {
+        let filterFeed = self.characterItems.filter {
             self.searchText.isEmpty ? true : $0.name!.lowercased().contains(self.searchText.lowercased())};
         List {
             ForEach(filterFeed, id: \.id) { character in
@@ -54,11 +58,15 @@ struct SuccessView: View {
 }
 
 struct ErrorView: View {
-    var characterFeed: CharacterFeed
+    var characterItems: [Character]
+    var error: Error
     
     var body: some View {
-        if(self.characterFeed.count == 0) {
-            Text("Error");
+        if(self.characterItems.count == 0) {
+            //show custom error
+            Text("Error:\(error.localizedDescription)");
+            
+            //may be we should add a retry button
         }
         //else we have data, do nothing here
     }
